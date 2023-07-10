@@ -27,6 +27,7 @@ in
   };
 
   config = with lib; mkIf cfg.enable {
+
     systemd.services.dyndns-nc = {
       script = ''
         set -eu
@@ -37,13 +38,13 @@ in
         User = "root";
       };
     };
-  };
 
-  systemd.timers.dyndns-nc = {
-    wantedBy = [ "timers.target" ];
-    timerConfig = {
-      OnCalendar = cfg.frequency;
-      Unit = "dyndns-nc.service";
+    systemd.timers.dyndns-nc = {
+      wantedBy = [ "timers.target" ];
+      timerConfig = {
+        OnCalendar = cfg.frequency;
+        Unit = "dyndns-nc.service";
+      };
     };
   };
 }
