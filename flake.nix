@@ -18,7 +18,7 @@
 
     containers.hass-addon = pkgs.dockerTools.buildLayeredImage {
       name = "ghcr.io/seineeloquenz/dyndns-netcup";
-      tag = "v0.1.1";
+      tag = "v0.1.2";
       contents = [
         dyndns-nc
       ];
