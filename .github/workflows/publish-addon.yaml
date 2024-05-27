@@ -1,0 +1,30 @@
+name: Publish Addon Image
+
+on:
+  push:
+    branches:
+      - main
+  workflow_dispatch:
+
+jobs:
+      publish-image:
+        runs-on: ubuntu-latest
+        steps:
+          - name: 'Checkout GitHub Action'
+            uses: actions/checkout@main
+
+          - name: "Install nix"
+            uses: cachix/install-nix-action@v27
+
+          - name: "Build Image"
+            run: nix build .#containers.hass-addon
+
+          - name: 'Login to GitHub Container Registry'
+            uses: docker/login-action@v1
+            with:
+              registry: ghcr.io
+              username: ${{github.actor}}
+              password: ${{secrets.GITHUB_TOKEN}}
+
+          - name: 'Build Inventory Image'
+            run: docker push ghcr.io/<your-GitHub-username>/store:latest
