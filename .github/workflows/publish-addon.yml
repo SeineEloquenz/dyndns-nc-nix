@@ -2,8 +2,8 @@ name: Publish Addon Image
 
 on:
   push:
-    branches:
-      - master
+    tags:
+      - v*
   workflow_dispatch:
 
 jobs:
@@ -30,4 +30,4 @@ jobs:
               password: ${{secrets.GITHUB_TOKEN}}
 
           - name: 'Push Image'
-            run: docker push ghcr.io/seineeloquenz/dyndns-netcup:0.1.0
+            run: docker push ghcr.io/seineeloquenz/dyndns-netcup:${{ github.ref_name }}
