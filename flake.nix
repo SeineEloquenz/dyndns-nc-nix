@@ -12,7 +12,7 @@
 
     container = pkgs: pkgs.dockerTools.buildLayeredImage {
       name = "ghcr.io/seineeloquenz/dyndns-netcup";
-      tag = "v0.1.2";
+      tag = "v0.1.3";
       contents = [
         dyndns-nc-aarch
       ];
