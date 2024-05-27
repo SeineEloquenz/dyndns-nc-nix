@@ -17,7 +17,7 @@
     packages.x86_64-linux.default = self.packages.x86_64-linux.dyndns-nc;
 
     containers.hass-addon = pkgs.dockerTools.buildLayeredImage {
-      name = "dyndns-netcup";
+      name = "SeineEloquenz/dyndns-netcup";
       tag = "latest";
       contents = [
         dyndns-nc
