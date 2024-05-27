@@ -26,5 +26,5 @@ jobs:
               username: ${{github.actor}}
               password: ${{secrets.GITHUB_TOKEN}}
 
-          - name: 'Build Inventory Image'
-            run: docker push ghcr.io/<your-GitHub-username>/store:latest
+          - name: 'Push Image'
+            run: docker push ghcr.io/SeineEloquenz/dyndns-netcup:latest
