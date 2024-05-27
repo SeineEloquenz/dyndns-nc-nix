@@ -17,7 +17,7 @@ jobs:
             uses: cachix/install-nix-action@v27
 
           - name: "Build Image"
-            run: nix build .#containers.hass-addon-arm
+            run: nix build .#containers.hass-addon.aarch64-linux
 
           - name: "Load Image"
             run: docker load < result
