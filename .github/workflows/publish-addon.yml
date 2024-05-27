@@ -27,4 +27,4 @@ jobs:
               password: ${{secrets.GITHUB_TOKEN}}
 
           - name: 'Push Image'
-            run: docker push ghcr.io/SeineEloquenz/dyndns-netcup:latest
+            run: docker push ghcr.io/seineeloquenz/dyndns-netcup:latest
